@@ -75,7 +75,7 @@ public class Cat : MonoBehaviour
 	IEnumerator Jump ()
 	{
 		if (!character.isGrounded)
-			return;
+			yield break;
 		animation.Blend ("Jump");
 		yield return new WaitForSeconds(0.15f);
 		verticalSpeed = JumpSpeed;
