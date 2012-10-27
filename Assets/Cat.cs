@@ -12,7 +12,20 @@ public class Cat : MonoBehaviour
 		
 	void Start ()
 	{
+		animation ["Idle"].layer = 0;
+		animation ["Run"].layer = 0;
+		animation ["Jump"].layer = 1;
+		animation ["Land"].layer = 1;
+		
+		Body.animation ["BodyIdle"].layer = 0;
+		Body.animation ["BodyIdleFork"].layer = 0;
+		Body.animation ["ForkTake"].layer = 2;
+		Body.animation ["ForkHide"].layer = 2;
+		Body.animation ["AttackSlash"].layer = 3;
+		
 		animation.Play ("Idle");
+		Body.animation.Play ("BodyIdle");
+		
 		character = GetComponent<CharacterController> ();
 		FootDust = transform.Find ("Foot Dust").GetComponent<ParticleSystem> ();
 	}
@@ -51,41 +64,52 @@ public class Cat : MonoBehaviour
 		verticalSpeed = (character.isGrounded) ? -0.1f : (verticalSpeed + Physics.gravity.y * Time.deltaTime);
 	
 		if (character.isGrounded)
-		if (!animation ["Idle"].enabled)
-			animation.Play ("Idle");
+		if (speed > 0.1f)
+			animation.CrossFade ("Run");
+		else
+			animation.CrossFade ("Idle");
 		animation ["Run"].speed = speed;
-		animation ["Idle"].weight = (1f - Mathf.Abs (speed) / MaxSpeed) * 0.5f;
-		animation ["Run"].weight = (Mathf.Abs (speed) / MaxSpeed) * 0.5f;
-		animation.Blend ("Run");
+
+		if (ForkReady)
+			Body.animation.CrossFade ("BodyIdleFork");
+		else
+			Body.animation.CrossFade ("BodyIdle");
+
 		
 		FootDust.enableEmission = character.isGrounded && (speed > MaxSpeed * 0.75f);
 		
 		if (!oldGrounded && character.isGrounded) {
-			animation ["Idle"].weight = 0.1f;
-			animation ["Run"].weight = 0.1f;
-			animation ["Land"].time = 0;
-			animation ["Land"].weight = 0.5f;
-			animation.Blend ("Land");
+			animation.CrossFade ("Land");
 			Instantiate (LandingDustPrefab, transform.position - Vector3.up * character.height / 2, Quaternion.identity);
 		}
 		
 		if (Input.GetKeyDown (KeyCode.E)) 
 			ToggleFork ();
+		if (Input.GetKeyDown (KeyCode.RightControl)) 
+			Attack ();
 	}
 	
 	private bool ForkReady = false;
 
 	public void ToggleFork ()
 	{
-		Body.animation.Play (ForkReady ? "ForkHide" : "ForkTake");
+		Body.animation.CrossFade (ForkReady ? "ForkHide" : "ForkTake");
 		ForkReady = !ForkReady;
+	}
+	
+	public void Attack ()
+	{
+		if (!ForkReady)
+			ToggleFork ();
+		else 
+			Body.animation.CrossFade ("AttackSlash", 0.1f, PlayMode.StopSameLayer);
 	}
 	
 	IEnumerator Jump ()
 	{
 		if (!character.isGrounded)
 			yield break;
-		animation.Blend ("Jump");
+		animation.CrossFade ("Jump");
 		yield return new WaitForSeconds(0.15f);
 		verticalSpeed = JumpSpeed;
 	}

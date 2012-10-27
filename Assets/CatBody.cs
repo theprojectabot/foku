@@ -14,4 +14,10 @@ public class CatBody : MonoBehaviour
 	{
 		Fork.parent = ForkSlot;
 	}
+	
+	public void AlignFork ()
+	{
+		Fork.transform.localPosition = Vector3.zero;
+		Fork.transform.localRotation = Quaternion.identity;
+	}
 }
