@@ -4,7 +4,7 @@ using System.Collections;
 public class Cat : MonoBehaviour
 {
 	public float MaxSpeed, Acceleration, JumpSpeed;
-	public Transform LandingDustPrefab;
+	public Transform LandingDustPrefab, Body;
 	private ParticleSystem FootDust;
 	private float speed, verticalSpeed;
 	private int direction = 1;
@@ -38,8 +38,7 @@ public class Cat : MonoBehaviour
 			speed = 0;
 		}
 		
-		
-		if (Input.GetKeyDown (KeyCode.W))
+		if (Input.GetKeyDown (KeyCode.Space))
 			StartCoroutine (Jump ());
 		
 		bool oldGrounded = character.isGrounded;
@@ -61,7 +60,6 @@ public class Cat : MonoBehaviour
 		
 		FootDust.enableEmission = character.isGrounded && (speed > MaxSpeed * 0.75f);
 		
-		Debug.Log (oldGrounded + " " + character.isGrounded);
 		if (!oldGrounded && character.isGrounded) {
 			animation ["Idle"].weight = 0.1f;
 			animation ["Run"].weight = 0.1f;
@@ -70,6 +68,17 @@ public class Cat : MonoBehaviour
 			animation.Blend ("Land");
 			Instantiate (LandingDustPrefab, transform.position - Vector3.up * character.height / 2, Quaternion.identity);
 		}
+		
+		if (Input.GetKeyDown (KeyCode.E)) 
+			ToggleFork ();
+	}
+	
+	private bool ForkReady = false;
+
+	public void ToggleFork ()
+	{
+		Body.animation.Play (ForkReady ? "ForkHide" : "ForkTake");
+		ForkReady = !ForkReady;
 	}
 	
 	IEnumerator Jump ()
