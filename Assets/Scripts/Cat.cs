@@ -9,7 +9,12 @@ public class Cat : MonoBehaviour
 	private float speed, verticalSpeed;
 	private int direction = 1;
 	private CharacterController character;
-		
+	private string[] attacks = new string[]{
+		"AttackSlash",
+		"AttackPoke",
+		"AttackSlash2"
+	};
+
 	void Start ()
 	{
 		animation ["Idle"].layer = 0;
@@ -22,6 +27,8 @@ public class Cat : MonoBehaviour
 		Body.animation ["ForkTake"].layer = 2;
 		Body.animation ["ForkHide"].layer = 2;
 		Body.animation ["AttackSlash"].layer = 3;
+		Body.animation ["AttackSlash2"].layer = 3;
+		Body.animation ["AttackPoke"].layer = 3;
 		
 		animation.Play ("Idle");
 		Body.animation.Play ("BodyIdle");
@@ -101,8 +108,10 @@ public class Cat : MonoBehaviour
 	{
 		if (!ForkReady)
 			ToggleFork ();
-		else 
-			Body.animation.CrossFade ("AttackSlash", 0.1f, PlayMode.StopSameLayer);
+		else {
+			string attack = attacks [Random.Range (0, attacks.Length)];
+			Body.animation.CrossFade (attack, 0.1f, PlayMode.StopSameLayer);
+		}
 	}
 	
 	IEnumerator Jump ()
