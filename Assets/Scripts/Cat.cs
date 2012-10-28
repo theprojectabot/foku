@@ -8,7 +8,7 @@ public class Cat : MonoSingleton<Cat>
 		"AttackPoke",
 		"AttackSlash2"
 	};
-	private Character character;
+	internal Character character;
 	
 	void Start ()
 	{
