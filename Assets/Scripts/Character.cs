@@ -39,6 +39,8 @@ public class Character : MonoBehaviour
 	
 	public void Move (float acc)
 	{
+		if (Confused)
+			return;
 		acc *= Acceleration * direction;
 		if (acc == 0 && speed > 0 && character.isGrounded) {
 			speed -= Acceleration * 2 * Time.deltaTime;
@@ -65,7 +67,7 @@ public class Character : MonoBehaviour
 			slideSpeed -= Time.deltaTime * Acceleration * Mathf.Sign (slideSpeed);
 			if (Mathf.Abs (slideSpeed) < 0.01f)
 				slideSpeed = 0;
-			character.Move (Vector3.right * slideSpeed * Time.deltaTime);
+			character.Move (Vector3.right * slideSpeed * Time.deltaTime - Vector3.up);
 		}
 		
 		bool oldGrounded = character.isGrounded;
@@ -110,12 +112,12 @@ public class Character : MonoBehaviour
 	
 	public void Attack (string attack)
 	{
-		if (Body.AttackInProgress)
+		if (Body.AttackInProgress || Confused)
 			return;
 		if (!ForkReady)
 			ToggleFork ();
 		else {
-			Body.animation.CrossFade (attack, 0.1f, PlayMode.StopSameLayer);
+			Body.animation.CrossFade (attack, 0.1f);
 		}
 	}
 	
@@ -142,7 +144,6 @@ public class Character : MonoBehaviour
 	{
 		Confused = true;
 		Body.AttackInProgress = false;
-		Body.animation.Stop ();
 		yield return new WaitForSeconds(ConfusionTimeout);
 		Confused = false;
 	}

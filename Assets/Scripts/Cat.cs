@@ -32,7 +32,7 @@ public class Cat : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.E)) 
 			character.ToggleFork ();
-
+		
 		if (Input.GetKeyDown (KeyCode.RightControl)) {
 			string attack = attacks [Random.Range (0, attacks.Length)];
 			character.Attack (attack);
@@ -41,5 +41,11 @@ public class Cat : MonoBehaviour
 	
 	public void OnHitReceived ()
 	{
+		FX.Instance.Run ("Hit");
+	}
+	
+	public void OnDidHit ()
+	{
+		FX.Instance.Run ("Hit");
 	}
 }

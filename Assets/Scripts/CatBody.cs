@@ -4,6 +4,12 @@ using System.Collections;
 public class CatBody : MonoBehaviour
 {
 	public Transform Fork, ForkHandle, ForkSlot;
+	private MeleeWeapon weapon = null;
+
+	void Start ()
+	{
+		weapon = Fork.GetComponent<MeleeWeapon> ();
+	}
 	
 	public void OnForkAttach ()
 	{
@@ -23,13 +29,8 @@ public class CatBody : MonoBehaviour
 	
 	public bool AttackInProgress = false;
 
-	public void OnAttackStart ()
+	void Update ()
 	{
-		AttackInProgress = true;
-	}
-	
-	public void OnAttackDone ()
-	{
-		AttackInProgress = false;
+		weapon.enabled = AttackInProgress;
 	}
 }
