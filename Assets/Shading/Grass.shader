@@ -15,10 +15,10 @@ Shader "Custom/Grass" {
 			Pass{
 		        Lighting Off 
 			    Cull Off
-				ZWrite On
-				ZTest LEqual
+				ZWrite Off
+				//ZTest LEqual
 				Blend SrcAlpha OneMinusSrcAlpha
-				AlphaTest Greater 0
+				//AlphaTest Greater 0
 			
 				CGPROGRAM
 				#pragma vertex vert

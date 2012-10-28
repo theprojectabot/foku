@@ -94,8 +94,8 @@ half4 frag( v2f i ) : COLOR
 #endif
    
     // get two offset values by looking up the noise texture shifted in different directions
-    half4 offsetColor1 = tex2D(_NoiseTex, i.uvmain + _Time.xz);
-    half4 offsetColor2 = tex2D(_NoiseTex, i.uvmain - _Time.yx);
+    half4 offsetColor1 = tex2D(_NoiseTex, screenPos * 10 + _Time.xz);
+    half4 offsetColor2 = tex2D(_NoiseTex, screenPos * 10 - _Time.yx);
     half4 alpha = tex2D(_Alpha, i.uvmain);
     
     // use the r values from the noise texture lookups and combine them for x offset
