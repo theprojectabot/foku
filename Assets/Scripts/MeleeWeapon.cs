@@ -5,7 +5,8 @@ public class MeleeWeapon : MonoBehaviour
 {
 	public string HitsTag;
 	public Transform HitFX;
-	private Character owner ;
+	public float Damage;
+	private Character owner;
 		
 	private Character getOwner (Transform t)
 	{
@@ -26,7 +27,7 @@ public class MeleeWeapon : MonoBehaviour
 			return;
 		Character c = collider.GetComponent<Character> ();
 		if (c != null && collider.gameObject.tag == HitsTag) {
-			c.ReceiveHit ();
+			c.ReceiveHit (Damage);
 			c.Backoff (-3 * Mathf.Sign (collider.transform.position.x - transform.position.x));
 			Instantiate (HitFX, collider.transform.position, collider.transform.rotation);
 			//Instantiate (HitFX, transform.position + ((BoxCollider)this.collider).center, collider.transform.rotation);

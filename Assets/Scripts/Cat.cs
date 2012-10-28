@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Cat : MonoBehaviour
+public class Cat : MonoSingleton<Cat>
 {
 	private string[] attacks = new string[]{
 		"AttackSlash",
@@ -41,7 +41,7 @@ public class Cat : MonoBehaviour
 	
 	public void OnHitReceived ()
 	{
-		FX.Instance.Run ("Hit");
+		FX.Instance.Run ("HitReceive");
 	}
 	
 	public void OnDidHit ()

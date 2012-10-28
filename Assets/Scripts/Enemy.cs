@@ -46,4 +46,9 @@ public class Enemy : MonoBehaviour
 			}
 		}
 	}
+	
+	public void OnHitReceived ()
+	{
+		target = Cat.Instance.transform;
+	}
 }

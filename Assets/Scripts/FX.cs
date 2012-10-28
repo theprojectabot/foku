@@ -19,7 +19,7 @@ public class FX : MonoSingleton<FX>
 		while (true) {
 			int idx = Random.Range (0, clips.Count);
 			if (clips [idx].StartsWith (fx)) {
-				animation.CrossFade (clips[idx]);
+				animation.CrossFade (clips[idx], 0.5f);
 				return;
 			}
 		}

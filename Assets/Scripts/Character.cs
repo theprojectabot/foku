@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Character : MonoBehaviour
 {
-	
+	public float Health, MaxHealth, HealthRegeneration;
+	public Transform DeathFX;
 	public float MaxSpeed, Acceleration, JumpSpeed;
 	public Transform LandingDustPrefab;
 	public bool ForkReady = false;
@@ -53,6 +54,9 @@ public class Character : MonoBehaviour
 	
 	void Update ()
 	{
+		if (Health < MaxHealth)
+			Health += HealthRegeneration * Time.deltaTime;
+		
 		if (speed < 0) {
 			direction = -direction;
 			speed = -speed;
@@ -148,8 +152,13 @@ public class Character : MonoBehaviour
 		Confused = false;
 	}
 	
-	public void ReceiveHit ()
+	public void ReceiveHit (float damage)
 	{
+		Health -= damage;
+		if (Health < 0) {
+			Instantiate (DeathFX, transform.position, Quaternion.identity);
+			Destroy (gameObject);
+		}
 		Confuse ();
 		SendMessage ("OnHitReceived", SendMessageOptions.DontRequireReceiver);
 	}
