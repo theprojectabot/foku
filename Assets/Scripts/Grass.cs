@@ -4,12 +4,10 @@ using System.Collections;
 public class Grass : MonoBehaviour
 {
 	public float Period, Amplitude;
-	private Matrix4x4 matrix0;
 	private float rnd;
 	
 	void Start ()
 	{
-		matrix0 = transform.localToWorldMatrix;
 		rnd = Random.Range (0f, 10f);
 	}
 	

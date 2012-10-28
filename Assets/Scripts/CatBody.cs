@@ -20,4 +20,16 @@ public class CatBody : MonoBehaviour
 		Fork.transform.localPosition = Vector3.zero;
 		Fork.transform.localRotation = Quaternion.identity;
 	}
+	
+	public bool AttackInProgress = false;
+
+	public void OnAttackStart ()
+	{
+		AttackInProgress = true;
+	}
+	
+	public void OnAttackDone ()
+	{
+		AttackInProgress = false;
+	}
 }
