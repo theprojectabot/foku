@@ -36,7 +36,7 @@ public class Cat : MonoSingleton<Cat>
 		if (Input.GetKeyDown (KeyCode.B)) 
 			character.Backoff (2);
 		
-		if (Input.GetKeyDown (KeyCode.E))  {
+		if (Input.GetKeyDown (KeyCode.E)) {
 			((Transform)Instantiate (Fireball, transform.position, transform.rotation)).GetComponent<MeleeWeapon> ().owner = character;
 		}
 		
@@ -59,17 +59,19 @@ public class Cat : MonoSingleton<Cat>
 	public void ToggleFlashlight ()
 	{
 		flashlight.Toggle ();
+		character.ForceBodyIdleForkAnimation = flashlight.On;
 	}
 	
 	public void OnHitReceived ()
 	{
 		FX.Instance.Run ("HitReceive");
-		Rage = Mathf.Max(Rage - 1, 0);
+		Rage = Mathf.Max (Rage - 1, 0);
 	}
 	
-	public void OnDidHit ()
+	public void OnDidHit (MeleeWeapon weapon)
 	{
 		FX.Instance.Run ("Hit");
-		Rage += 1;
+		if (weapon.GetComponent<Fireball> () == null)
+			Rage += 1;
 	}
 }

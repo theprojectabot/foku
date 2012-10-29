@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
 	private float speed, verticalSpeed, slideSpeed;
 	private int direction = 1;
 	private CharacterController character;
+	internal bool ForceBodyIdleForkAnimation = false;
 	
 	void Start ()
 	{
@@ -91,7 +92,7 @@ public class Character : MonoBehaviour
 			animation.CrossFade ("Idle");
 		animation ["Run"].speed = speed;
 
-		if (ForkReady)
+		if (ForkReady || ForceBodyIdleForkAnimation)
 			Body.animation.CrossFade ("BodyIdleFork");
 		else
 			Body.animation.CrossFade ("BodyIdle");
