@@ -10,11 +10,12 @@ public class Cat : MonoSingleton<Cat>
 		"AttackPoke2"
 	};
 	internal Character character;
+	private float forkHideTimeout = 0;
 	public Flashlight flashlight;
 		
 	public override void Start ()
 	{
-		base.Start();
+		base.Start ();
 		character = GetComponent<Character> ();
 	}
 
@@ -33,17 +34,24 @@ public class Cat : MonoSingleton<Cat>
 		if (Input.GetKeyDown (KeyCode.B)) 
 			character.Backoff (2);
 		
-		if (Input.GetKeyDown (KeyCode.E)) 
-			character.ToggleFork ();
+		//if (Input.GetKeyDown (KeyCode.E))  {
+		//character.ToggleFork ();
+		//}
 		
 		if (Input.GetKeyDown (KeyCode.RightControl)) {
+			forkHideTimeout = 5;
 			string attack = attacks [Random.Range (0, attacks.Length)];
 			character.Attack (attack);
 		}
+		
+		forkHideTimeout -= Time.deltaTime;
+		if (forkHideTimeout < 0 && character.ForkReady)
+			character.ToggleFork ();
 	}
 	
-	public void ToggleFlashlight() {
-		flashlight.Toggle();
+	public void ToggleFlashlight ()
+	{
+		flashlight.Toggle ();
 	}
 	
 	public void OnHitReceived ()
