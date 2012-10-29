@@ -12,6 +12,8 @@ public class Cat : MonoSingleton<Cat>
 	internal Character character;
 	private float forkHideTimeout = 0;
 	public Flashlight flashlight;
+	public Transform Fireball;
+	public float Rage = 0;
 		
 	public override void Start ()
 	{
@@ -34,9 +36,9 @@ public class Cat : MonoSingleton<Cat>
 		if (Input.GetKeyDown (KeyCode.B)) 
 			character.Backoff (2);
 		
-		//if (Input.GetKeyDown (KeyCode.E))  {
-		//character.ToggleFork ();
-		//}
+		if (Input.GetKeyDown (KeyCode.E))  {
+			((Transform)Instantiate (Fireball, transform.position, transform.rotation)).GetComponent<MeleeWeapon> ().owner = character;
+		}
 		
 		if (Input.GetKeyDown (KeyCode.RightControl)) {
 			forkHideTimeout = 5;
@@ -47,6 +49,11 @@ public class Cat : MonoSingleton<Cat>
 		forkHideTimeout -= Time.deltaTime;
 		if (forkHideTimeout < 0 && character.ForkReady)
 			character.ToggleFork ();
+		
+		if (Rage > 4) {
+			((Transform)Instantiate (Fireball, transform.position, transform.rotation)).GetComponent<MeleeWeapon> ().owner = character;
+			Rage = 0;
+		}
 	}
 	
 	public void ToggleFlashlight ()
@@ -57,10 +64,12 @@ public class Cat : MonoSingleton<Cat>
 	public void OnHitReceived ()
 	{
 		FX.Instance.Run ("HitReceive");
+		Rage = Mathf.Max(Rage - 1, 0);
 	}
 	
 	public void OnDidHit ()
 	{
 		FX.Instance.Run ("Hit");
+		Rage += 1;
 	}
 }
