@@ -6,14 +6,14 @@ public class DarkArea : MonoBehaviour
 	public void OnTriggerStay (Collider collider)
 	{
 		Cat c = collider.GetComponent<Cat> ();
-		if (c != null && !c.flashlight.On)  
+		if (c != null && !c.flashlight.On && c.enabled)  
 			c.ToggleFlashlight ();
 	}
 	
 	public void OnTriggerExit (Collider collider)
 	{
 		Cat c = collider.GetComponent<Cat> ();
-		if (c != null && c.flashlight.On) 
+		if (c != null && c.flashlight.On && c.enabled) 
 			c.ToggleFlashlight ();
 	}
 }

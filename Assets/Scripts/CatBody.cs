@@ -8,7 +8,8 @@ public class CatBody : MonoBehaviour
 
 	void Start ()
 	{
-		weapon = Fork.GetComponent<MeleeWeapon> ();
+		if (Fork != null)
+			weapon = Fork.GetComponent<MeleeWeapon> ();
 	}
 	
 	public void OnForkAttach ()
@@ -31,6 +32,7 @@ public class CatBody : MonoBehaviour
 
 	void Update ()
 	{
-		weapon.enabled = AttackInProgress;
+		if (weapon != null)
+			weapon.enabled = AttackInProgress;
 	}
 }
