@@ -6,7 +6,8 @@ public class Cat : MonoSingleton<Cat>
 	private string[] attacks = new string[]{
 		"AttackSlash",
 		"AttackPoke",
-		"AttackSlash2"
+		"AttackSlash2",
+		"AttackPoke2"
 	};
 	internal Character character;
 	public Flashlight flashlight;

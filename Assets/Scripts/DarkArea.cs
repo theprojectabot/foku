@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DarkArea : MonoBehaviour
 {
-	public void OnTriggerEnter (Collider collider)
+	public void OnTriggerStay (Collider collider)
 	{
 		Cat c = collider.GetComponent<Cat> ();
 		if (c != null) 

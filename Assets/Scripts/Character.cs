@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
 		Body.animation ["AttackSlash"].layer = 3;
 		Body.animation ["AttackSlash2"].layer = 3;
 		Body.animation ["AttackPoke"].layer = 3;
+		Body.animation ["AttackPoke2"].layer = 3;
 		
 		animation.Play ("Idle");
 		Body.animation.Play ("BodyIdle");
