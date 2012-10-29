@@ -8,8 +8,9 @@ public class FX : MonoSingleton<FX>
 	public Vignetting VignetteFX;
 	private List<string> clips;
 	
-	void Start ()
+	public override void Start ()
 	{
+		base.Start();
 		clips = new List<string> ();
 		foreach (AnimationState s in animation)
 			clips.Add (s.name);

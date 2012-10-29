@@ -9,9 +9,11 @@ public class Cat : MonoSingleton<Cat>
 		"AttackSlash2"
 	};
 	internal Character character;
-	
-	void Start ()
+	public Flashlight flashlight;
+		
+	public override void Start ()
 	{
+		base.Start();
 		character = GetComponent<Character> ();
 	}
 
@@ -29,7 +31,7 @@ public class Cat : MonoSingleton<Cat>
 		
 		if (Input.GetKeyDown (KeyCode.B)) 
 			character.Backoff (2);
-
+		
 		if (Input.GetKeyDown (KeyCode.E)) 
 			character.ToggleFork ();
 		
@@ -37,6 +39,10 @@ public class Cat : MonoSingleton<Cat>
 			string attack = attacks [Random.Range (0, attacks.Length)];
 			character.Attack (attack);
 		}
+	}
+	
+	public void ToggleFlashlight() {
+		flashlight.Toggle();
 	}
 	
 	public void OnHitReceived ()
