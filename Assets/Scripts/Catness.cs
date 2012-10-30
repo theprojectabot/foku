@@ -9,6 +9,7 @@ public class Catness : MonoSingleton<Catness>
 	public override void Start ()
 	{
 		base.Start ();
+		_<Character> ().ForceBodyIdleForkAnimation = true;
 		_<FriendlyNPC> ().Follow = Cat.Instance.transform;
 	}
 	
