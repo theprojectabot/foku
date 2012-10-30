@@ -40,30 +40,35 @@ public class Character : MonoBehaviour
 		FootDust = transform.Find ("Foot Dust").GetComponent<ParticleSystem> ();
 	}
 	
+	private bool movedThisFrame = false;
+	
 	public void Move (float acc)
 	{
 		if (Confused)
 			return;
+		movedThisFrame = acc != 0;
 		acc *= Acceleration * direction;
-		if (acc == 0 && speed > 0 && character.isGrounded) {
-			speed -= Acceleration * 2 * Time.deltaTime;
-			speed = Mathf.Clamp (speed, 0, MaxSpeed);
-		} else {
-			speed += acc * Time.deltaTime;
-		}
+		
+		speed += acc * Time.deltaTime;
 		speed = Mathf.Clamp (speed, -1, MaxSpeed * (ForkReady ? 0.9f : 1f));
 	}
 	
-	void Update ()
+	void LateUpdate ()
 	{
 		if (Health < MaxHealth)
 			Health += HealthRegeneration * Time.deltaTime;
+	
+		if (!movedThisFrame && speed > 0 && character.isGrounded) {
+			speed -= Acceleration * 2 * Time.deltaTime;
+			speed = Mathf.Clamp (speed, 0, MaxSpeed);
+		}
+		movedThisFrame = false;
 		
 		if (speed < 0) {
 			direction = -direction;
 			speed = -speed;
-			transform.localEulerAngles = new Vector3 (0, 180 * (direction / 2f - 0.5f), 0);
 		}
+		transform.localEulerAngles = new Vector3 (0, 180 * (direction / 2f - 0.5f), 0);
 		
 		if (speed < 0.01f) {
 			speed = 0;
@@ -112,6 +117,8 @@ public class Character : MonoBehaviour
 	
 	public void ToggleFork ()
 	{
+		Body.audio.clip = ForkReady ? Body.ForkTakeSound : Body.ForkHideSound;
+		Body.audio.Play ();
 		Body.animation.CrossFade (ForkReady ? "ForkHide" : "ForkTake");
 		ForkReady = !ForkReady;
 	}

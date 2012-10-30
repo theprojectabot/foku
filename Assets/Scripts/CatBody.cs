@@ -4,6 +4,7 @@ using System.Collections;
 public class CatBody : MonoBehaviour
 {
 	public Transform Fork, ForkHandle, ForkSlot;
+	public AudioClip ForkTakeSound, ForkHideSound;
 	private MeleeWeapon weapon = null;
 
 	void Start ()
