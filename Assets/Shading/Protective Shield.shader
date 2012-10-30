@@ -1,11 +1,10 @@
 // Upgrade NOTE: replaced 'glstate.matrix.modelview[0]' with 'UNITY_MATRIX_MV'
 // Upgrade NOTE: replaced 'glstate.matrix.mvp' with 'UNITY_MATRIX_MVP'
 
-Shader "HeatDistortion" {
+Shader "Custom/Protective Shield" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,1)
     _NoiseTex ("Noise Texture (RG)", 2D) = "white" {}
-    _Alpha ("Alpha (A)", 2D) = "white" {}
     strength("strength", Range(0, 1)) = 0.2
     transparency("transparency", Range(0, 1)) = 0.5
 }
@@ -40,10 +39,8 @@ CGPROGRAM
 
 sampler2D _GrabTexture : register(s0);
 float4 _NoiseTex_ST;
-float4 _Alpha_ST;
 float4 _Color;
 sampler2D _NoiseTex;
-sampler2D _Alpha;
 float strength;
 float transparency;
 
@@ -57,7 +54,6 @@ struct data {
 struct v2f {
     float4 position : POSITION;
     float4 screenPos : TEXCOORD0;
-    float2 uva : TEXCOORD1;
     float2 uvmain : TEXCOORD2;
 	float distortion;
 	fixed4 color : COLOR;
@@ -67,7 +63,6 @@ v2f vert(data i){
     v2f o;
     o.position = mul(UNITY_MATRIX_MVP, i.vertex);      // compute transformed vertex position
     o.uvmain = TRANSFORM_TEX(i.texcoord, _NoiseTex);   // compute the texcoords of the noise
-    o.uva = TRANSFORM_TEX(i.texcoord,  _Alpha);   // compute the texcoords of the noise
     //float viewAngle = dot(normalize(mul((float3x3)glstate.matrix.invtrans.modelview[0], i.normal)),
 	//					 float3(0,0,1));
 	float viewAngle = dot(normalize(ObjSpaceViewDir(i.vertex)),
@@ -96,9 +91,8 @@ half4 frag( v2f i ) : COLOR
 #endif
    
     // get two offset values by looking up the noise texture shifted in different directions
-    half4 offsetColor1 = tex2D(_NoiseTex, screenPos * 10 + _Time.xz);
-    half4 offsetColor2 = tex2D(_NoiseTex, screenPos * 10 - _Time.yx);
-    half4 alpha = tex2D(_Alpha, i.uva);
+    half4 offsetColor1 = tex2D(_NoiseTex, i.uvmain + _Time.xz);
+    half4 offsetColor2 = tex2D(_NoiseTex, i.uvmain - _Time.yx);
     
     // use the r values from the noise texture lookups and combine them for x offset
     // use the g values from the noise texture lookups and combine them for y offset
@@ -107,7 +101,7 @@ half4 frag( v2f i ) : COLOR
     screenPos.y += ((offsetColor1.g + offsetColor2.g) - 1) * strength;
    
     half4 col = tex2D( _GrabTexture, screenPos ) * _Color;
-    col.a = transparency * alpha.a * _Color.a * i.color.a;
+    col.a = transparency * _Color.a * i.color.a;
     return col;
 }
 

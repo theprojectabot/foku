@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
 	private int direction = 1;
 	private CharacterController character;
 	internal bool ForceBodyIdleForkAnimation = false;
+	internal CollisionFlags LastCollision;
 	
 	void Start ()
 	{
@@ -85,7 +86,7 @@ public class Character : MonoBehaviour
 		
 		Vector3 motion = transform.right * speed + transform.up * verticalSpeed;
 		Vector3 oldPosition = transform.localPosition;
-		CollisionFlags collFlags = character.Move (motion * Time.deltaTime);
+		LastCollision = character.Move (motion * Time.deltaTime);
 		float dx = transform.localPosition.x - oldPosition.x;
 		speed = Mathf.Abs (dx / Time.deltaTime);
 		verticalSpeed = (character.isGrounded) ? -0.1f : (verticalSpeed + Physics.gravity.y * Time.deltaTime);

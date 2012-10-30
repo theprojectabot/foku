@@ -24,8 +24,11 @@ public class FriendlyNPC : MonoBehaviour
 	public void GoTowards (Vector3 position, float keepAway)
 	{
 		float dx = position.x - transform.position.x;
-		if (Mathf.Abs (dx) > keepAway)
+		if (Mathf.Abs (dx) > keepAway) {
 			character.Move (Mathf.Sign (dx));
+			if ((character.LastCollision & CollisionFlags.Sides) == CollisionFlags.Sides)
+				character.Jump ();
+		}
 	}
 	
 	void Update ()
