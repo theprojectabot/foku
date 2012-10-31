@@ -107,7 +107,7 @@ public class Character : MonoBehaviour
 		
 		if (!oldGrounded && character.isGrounded) {
 			animation.CrossFade ("Land");
-			Instantiate (LandingDustPrefab, transform.position - Vector3.up * character.height / 2, Quaternion.identity);
+			//Instantiate (LandingDustPrefab, transform.position - Vector3.up * character.height / 2, Quaternion.identity);
 		}
 	}
 	

@@ -15,7 +15,7 @@ public class ForkLight : MonoBase
 	void Update ()
 	{
 		float d = (transform.position - lastPosition).magnitude / Time.deltaTime;
-		emission.Update (Mathf.Clamp (d, 0, 8) * 2);
+		emission.Update (Mathf.Clamp (d, 4, 8) * 2 - 8);
 		light.intensity = emission.Value;
 		lastPosition = transform.position;
 	}
