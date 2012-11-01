@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
 	public float ConfusionTimeout = 0.5f;
 	private ParticleSystem FootDust;
 	private float speed, verticalSpeed, slideSpeed;
-	private int direction = 1;
+	public int Direction = 1;
 	private CharacterController character;
 	internal bool ForceBodyIdleForkAnimation = false;
 	internal CollisionFlags LastCollision;
@@ -48,7 +48,7 @@ public class Character : MonoBehaviour
 		if (Confused)
 			return;
 		movedThisFrame = acc != 0;
-		acc *= Acceleration * direction;
+		acc *= Acceleration * Direction;
 		
 		speed += acc * Time.deltaTime;
 		speed = Mathf.Clamp (speed, -1, MaxSpeed * (ForkReady ? 0.9f : 1f));
@@ -66,10 +66,10 @@ public class Character : MonoBehaviour
 		movedThisFrame = false;
 		
 		if (speed < 0) {
-			direction = -direction;
+			Direction = -Direction;
 			speed = -speed;
 		}
-		transform.localEulerAngles = new Vector3 (0, 180 * (direction / 2f - 0.5f), 0);
+		transform.localEulerAngles = new Vector3 (0, 180 * (Direction / 2f - 0.5f), 0);
 		
 		if (speed < 0.01f) {
 			speed = 0;
