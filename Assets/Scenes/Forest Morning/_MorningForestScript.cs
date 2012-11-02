@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class _ForestScript : MonoSingleton<_ForestScript>
+public class _MorningForestScript : MonoSingleton<_MorningForestScript>
 {
 	public Cat Cat;
 	public Transform Catness, CatnessWaypoint1, CatnessWaypoint2, CatnessWaypointTalk, Fire;
