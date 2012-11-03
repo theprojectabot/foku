@@ -121,7 +121,15 @@ public class Character : MonoBehaviour
 		Body.audio.clip = ForkReady ? Body.ForkTakeSound : Body.ForkHideSound;
 		Body.audio.Play ();
 		Body.animation.CrossFade (ForkReady ? "ForkHide" : "ForkTake");
-		ForkReady = !ForkReady;
+		if (!ForkReady)
+			Invoke ("_SetForkReady", Body.animation ["ForkTake"].length);
+		else
+			ForkReady = false;
+	}
+	
+	public void _SetForkReady ()
+	{
+		ForkReady = true;
 	}
 	
 	public void Attack (string attack)

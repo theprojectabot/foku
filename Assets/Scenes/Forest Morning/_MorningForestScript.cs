@@ -4,61 +4,56 @@ using System.Collections;
 public class _MorningForestScript : MonoSingleton<_MorningForestScript>
 {
 	public Cat Cat;
-	public Transform Catness, CatnessWaypoint1, CatnessWaypoint2, CatnessWaypointTalk, Fire;
+	public Transform Catness, CatnessWaypoint1, CatnessWaypoint2, CatnessWaypointTalk;
+	public Transform[] SpawnPoints;
+	public Transform EnemyPrefab;
+	public Transform LeftLimit;
+	public int EnemyCount = 10;
 	
 	public override	void Start ()
 	{
 		base.Start ();
-		//StartCoroutine (Do1 ());
+		StartCoroutine (Do1 ());
 	}
 	
 	IEnumerator Do1 ()
 	{
 		yield return new WaitForEndOfFrame();
-	}
-	
-	public IEnumerator Do2 ()
-	{
-		Catness.GetComponentInChildren<Flashlight> ().On = false;
-		Catness.GetComponent<Character> ().MaxSpeed = 0.9f;
-		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint1;
 		
-		// Cat waits
+		
+		// Begin, cat sleeps
 		Cat.enabled = false;
 		Cat.GetComponent<Character> ().enabled = false;
-		Cat.animation.Stop ();
-		Cat.character.Body.animation.Stop ();
-		
-		// Wait for Catness
-		yield return new WaitForSeconds(4);
-		
-		// Catness lights fire
-		Catness.GetComponentInChildren<Flashlight> ().On = true;
-		yield return new WaitForSeconds(1);
-		Fire.gameObject.SetActiveRecursively (true);
-		yield return new WaitForSeconds(1);
-		Catness.GetComponentInChildren<Flashlight> ().On = false;
-		yield return new WaitForSeconds(2);
-		
-		Cat.GetComponentInChildren<Flashlight> ().On = false;
-		
-		// Catness walks
-		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypointTalk;
-		yield return new WaitForSeconds(2);
-		// Catness speaks
-		yield return new WaitForSeconds(4);
-		
-		// Catness walks away
-		Catness.GetComponent<Character> ().ForceBodyIdleForkAnimation = false;
-		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint2;
-		
-		// Cat sleeps
-		Cat.GetComponent<Character> ().ForceBodyIdleForkAnimation = false;
-		Cat.animation ["Cat Awaking"].speed = -1;
-		Cat.animation ["Cat Awaking"].time = Cat.animation ["Cat Awaking"].length;
 		Cat.animation.Play ("Cat Awaking");
-		yield return new WaitForSeconds(5);
+		yield return new WaitForEndOfFrame();
+		Cat.animation.Stop ();
 		
+		// Catness walks by
+		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint1;
+		yield return new WaitForSeconds(2);
 		
+		Catness.GetComponent<Character> ().ForceBodyIdleForkAnimation = true;
+		yield return new WaitForSeconds(2);
+		
+		Cat.animation.Play ("Cat Awaking");
+		yield return new WaitForSeconds(4);
+		Cat.enabled = true;
+		Cat.GetComponent<Character> ().enabled = true;
+		
+		Catness.GetComponent<FriendlyNPC> ().Waypoint = null;
+		Catness.GetComponent<FriendlyNPC> ().Follow = Cat.transform;
+		
+		// Spawning
+		for (int i =0; i < EnemyCount; i++) {
+			Transform e = Instantiate (EnemyPrefab, SpawnPoints [Random.Range (0, SpawnPoints.Length)].position, Quaternion.identity) as Transform;
+			e.GetComponent<Enemy> ().target = Cat.Instance.transform;
+			yield return new WaitForSeconds(Random.Range(5,10));
+		}
+		
+		while (FindSceneObjectsOfType(typeof(Enemy)).Length > 0)
+			yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(3);
+			
+		Destroy (LeftLimit.gameObject);
 	}
 }

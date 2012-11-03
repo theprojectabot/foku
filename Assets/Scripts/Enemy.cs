@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
 	public float AttackDistance = 1.2f, KeepDistance = 0.5f;
 	public string[] Attacks;
-	private Transform target;
+	public  Transform target;
 	private Character character;
 	
 	void OnTriggerEnter (Collider c)
