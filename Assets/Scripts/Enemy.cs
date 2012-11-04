@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 	public  Transform target;
 	private Character character;
 	
-	void OnTriggerEnter (Collider c)
+	void OnTriggerStay (Collider c)
 	{
 		if (c.tag == "Player")
 			target = c.transform;

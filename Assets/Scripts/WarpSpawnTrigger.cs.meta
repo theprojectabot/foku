@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 68518d9f972bf5a4799dcbd977f18932
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Enemy: {instanceID: 0}
+  - WarpPrefab: {fileID: 11400000, guid: 10cdf5a53f9b2444abe0f0a1b3aa82bb, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
