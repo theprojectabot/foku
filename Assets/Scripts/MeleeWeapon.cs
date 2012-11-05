@@ -30,10 +30,10 @@ public class MeleeWeapon : MonoBehaviour
 	{
 		if (!enabled)
 			return;
-		Character c = collider.GetComponent<Character> ();
+		CharacterDamageReceiver c = collider.GetComponent<CharacterDamageReceiver> ();
 		if (c != null && collider.gameObject.tag == HitsTag && !collider.isTrigger) {
-			c.ReceiveHit (Damage);
-			c.Backoff (-BackoffAmount * Mathf.Sign (collider.transform.position.x - transform.position.x));
+			c.Character.ReceiveHit (Damage);
+			c.Character.Backoff (-BackoffAmount * Mathf.Sign (collider.transform.position.x - transform.position.x));
 			Instantiate (HitFX, collider.transform.position, collider.transform.rotation);
 			if (owner != null && ReportHits)
 				owner.SendMessage ("OnDidHit", this, SendMessageOptions.DontRequireReceiver);

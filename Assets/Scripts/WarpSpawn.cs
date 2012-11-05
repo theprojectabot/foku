@@ -27,7 +27,7 @@ public class WarpSpawn : MonoBehaviour
 	IEnumerator Do ()
 	{
 		targetSize = Size;
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 		targetSize = 0;
 		Instantiate (Spawn, transform.position, Quaternion.identity);
 		yield return new WaitForSeconds(5f);
