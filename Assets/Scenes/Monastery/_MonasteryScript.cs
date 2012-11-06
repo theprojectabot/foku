@@ -4,7 +4,7 @@ using System.Collections;
 public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 {
 	public Cat Cat;
-	public Transform Catness, MainMonk, CatnessWaypoint1, Guard, GuardWaypoint;
+	public Transform Catness, MainMonk, CatnessWaypoint1, Guard, GuardWaypoint, StoryBarrier1;
 	
 	public override	void Start ()
 	{
@@ -57,17 +57,48 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 		
 		// Going out
 	}
+	
+	public IEnumerator DoMonkStory ()
+	{
+		Cat.GetComponent<Cat> ().enabled = false;
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say (MainMonk, "I'll have to keep it short.", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (MainMonk, "The monks of Shadow Monastery\nhave stolen the Great Fork.", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (MainMonk, "A friend has warned me. In a few minutes,\nguards will swarm in and accuse us of robbery.", 4);
+		yield return new WaitForSeconds(5);
+		Dialogue.Instance.Say (MainMonk, "Posession of the Fork enables Shadow monks\nto open portals into the Void", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (MainMonk, "And this is not something I can let happen.", 2);
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say (MainMonk, "Now you must go and stop Shadow monks\nbefore guards catch you.", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (MainMonk, "The back door is open. Go past the guard tower\nand reach the safe house in the forest.", 4);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (Catness, "But what about you? You can't stay!\nThey'll get you too.", 2);
+		yield return new WaitForSeconds(2);
+		Dialogue.Instance.Say (MainMonk, "Then I'll have to think of something...", 2);
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say (MainMonk, "Now go!", 2);
+		Cat.GetComponent<Cat> ().enabled = true;
+		Catness.GetComponent<Character> ().MaxSpeed = 1f;
+		Cat.GetComponent<Character> ().MaxSpeed = 1f;
+		Destroy (StoryBarrier1.gameObject);
+	}
 		
 	public IEnumerator Do2 ()
 	{
 		// Guard ahead
 		Guard.GetComponent<FriendlyNPC> ().Waypoint = GuardWaypoint;
 		Cat.GetComponent<Cat> ().enabled = false;
+		Dialogue.Instance.Say (Catness, "There's a guard ahead!", 2);
 		
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(7);
 		
+		Dialogue.Instance.Say (Catness, "Run!", 2);
 		Cat.GetComponent<Cat> ().enabled = true;
-		Catness.GetComponent<Character> ().MaxSpeed = 1.2f;
-		Cat.GetComponent<Character> ().MaxSpeed = 1.2f;
+		Catness.GetComponent<Character> ().MaxSpeed = 1.4f;
+		Cat.GetComponent<Character> ().MaxSpeed = 1.4f;
 	}
 }
