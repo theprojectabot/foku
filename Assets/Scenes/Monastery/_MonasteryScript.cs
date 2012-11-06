@@ -31,13 +31,22 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 		// Catness walks by
 		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint1;
 		yield return new WaitForSeconds(2);
+		Dialogue.Instance.Say (Catness, "Hey! Wake up!", 3);
 		
 		Catness.GetComponent<Character> ().ForceBodyIdleForkAnimation = true;
 		Catness.GetComponentInChildren<Flashlight> ().On = true;
 		yield return new WaitForSeconds(2);
 		
 		Cat.animation.Play ("Cat Awaking");
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(2);
+		Dialogue.Instance.Say (Cat.Instance.transform, "Uh... What?", 1);
+		yield return new WaitForSeconds(1.5f);
+		Dialogue.Instance.Say (Catness, "Shh, dont wake the others!", 2);
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say (Catness, "Master wants to speak to you", 2);
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say (Catness, "...and it's urgent.", 2);
+		
 		Cat.enabled = true;
 		Cat.GetComponent<Character> ().enabled = true;
 		Cat.GetComponentInChildren<Flashlight> ().On = true;
@@ -47,7 +56,6 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 		Catness.GetComponent<FriendlyNPC> ().Follow = Cat.transform;
 		
 		// Going out
-		
 	}
 		
 	public IEnumerator Do2 ()
