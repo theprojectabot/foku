@@ -3,10 +3,7 @@ using System.Collections;
 
 public class LoadingScreen : MonoBehaviour
 {
-	public float Progress;
-	public Transform Fire;
-	public string URL;
-	private SmoothFloat smoothProgress = new SmoothFloat ();
+	public static string Level = "Monastery 1";
 	
 	void Start ()
 	{
@@ -15,18 +12,7 @@ public class LoadingScreen : MonoBehaviour
 	
 	public IEnumerator Loader ()
 	{
-		yield return new WaitForSeconds(2);
-		WWW stream = new WWW (URL);
-		while (!stream.isDone) {
-			Progress = stream.progress;
-			yield return new WaitForSeconds(0.1f);
-		}
-		stream.LoadUnityWeb ();
-	}
-	
-	void Update ()
-	{
-		smoothProgress.Update (Progress);
-		Fire.transform.position = new Vector3 (0, -40 + 28 * smoothProgress.Value, 1);
+		yield return new WaitForSeconds(1);
+		Application.LoadLevelAsync (Level);
 	}
 }

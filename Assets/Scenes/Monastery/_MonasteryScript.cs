@@ -30,7 +30,7 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 		
 		// Catness walks by
 		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint1;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(4);
 		Dialogue.Instance.Say (Catness, "Hey! Wake up!", 3);
 		
 		Catness.GetComponent<Character> ().ForceBodyIdleForkAnimation = true;
@@ -56,10 +56,13 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 		Catness.GetComponent<FriendlyNPC> ().Follow = Cat.transform;
 		
 		// Going out
+		Cat.GetComponent<Character> ().ForceBodyIdleForkAnimation = true;
 	}
 	
 	public IEnumerator DoMonkStory ()
 	{
+		Cat.GetComponent<Character> ().ForceBodyIdleForkAnimation = false;
+		
 		Cat.GetComponent<Cat> ().enabled = false;
 		yield return new WaitForSeconds(3);
 		Dialogue.Instance.Say (MainMonk, "I'll have to keep it short.", 3);

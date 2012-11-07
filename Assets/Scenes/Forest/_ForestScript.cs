@@ -9,12 +9,16 @@ public class _ForestScript : MonoSingleton<_ForestScript>
 	public override	void Start ()
 	{
 		base.Start ();
-		//StartCoroutine (Do1 ());
+		StartCoroutine (Do1 ());
 	}
 	
 	IEnumerator Do1 ()
 	{
 		yield return new WaitForEndOfFrame();
+		yield return new WaitForSeconds(5);
+		Dialogue.Instance.Say(Catness, "Watch out", 2);
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say(Catness, "By now, Shadow monks probably\nknow where we are", 3.5f);
 	}
 	
 	public IEnumerator Do2 ()
@@ -35,7 +39,7 @@ public class _ForestScript : MonoSingleton<_ForestScript>
 		// Catness lights fire
 		Catness.GetComponentInChildren<Flashlight> ().On = true;
 		yield return new WaitForSeconds(1);
-		Fire.gameObject.SetActiveRecursively (true);
+		Fire.gameObject.SetActive (true);
 		yield return new WaitForSeconds(1);
 		Catness.GetComponentInChildren<Flashlight> ().On = false;
 		yield return new WaitForSeconds(2);
@@ -62,3 +66,4 @@ public class _ForestScript : MonoSingleton<_ForestScript>
 		
 	}
 }
+
