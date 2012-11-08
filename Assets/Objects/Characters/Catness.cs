@@ -13,6 +13,11 @@ public class Catness : MonoSingleton<Catness>
 		_<FriendlyNPC> ().Follow = Cat.Instance.transform;
 	}
 	
+	void Update() {
+		if (Application.isEditor && Input.GetKeyDown(KeyCode.F))
+			DoFireball();
+	}
+	
 	public void DoMagic ()
 	{
 		int r = Random.Range (0, 2);

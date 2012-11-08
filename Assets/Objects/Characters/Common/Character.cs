@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
 	private float speed, verticalSpeed, slideSpeed;
 	public int Direction = 1;
 	private CharacterController character;
-	internal bool ForceBodyIdleForkAnimation = false;
+	internal bool ForceBodyIdleForkAnimation = false, AllowWeapon = true;
 	internal CollisionFlags LastCollision;
 	
 	void Start ()
@@ -118,6 +118,8 @@ public class Character : MonoBehaviour
 	
 	public void ToggleFork ()
 	{
+		if (!AllowWeapon)
+			return;
 		Body.audio.clip = ForkReady ? Body.ForkTakeSound : Body.ForkHideSound;
 		Body.audio.Play ();
 		Body.animation.CrossFade (ForkReady ? "ForkHide" : "ForkTake");

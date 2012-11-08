@@ -15,7 +15,8 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 	IEnumerator Do1 ()
 	{
 		yield return new WaitForEndOfFrame();
-		
+		Cat.GetComponent<Character> ().AllowWeapon = false;
+			
 		Catness.GetComponentInChildren<Flashlight> ().On = false;
 		Catness.GetComponent<Character> ().MaxSpeed = 0.9f;
 		
