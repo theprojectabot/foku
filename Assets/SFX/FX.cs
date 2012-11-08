@@ -10,7 +10,7 @@ public class FX : MonoSingleton<FX>
 	
 	public override void Start ()
 	{
-		base.Start();
+		base.Start ();
 		clips = new List<string> ();
 		foreach (AnimationState s in animation)
 			clips.Add (s.name);
@@ -33,8 +33,10 @@ public class FX : MonoSingleton<FX>
 	{
 		Realtime.SetTimeScale (TimeScale, 0);
 		
-		float health = 1 - Cat.Instance.character.Health / Cat.Instance.character.MaxHealth;
-		VignetteFX.blur = 4 * health;
-		VignetteFX.intensity = 8 * health;
+		if (Cat.Instance != null) {
+			float health = 1 - Cat.Instance.character.Health / Cat.Instance.character.MaxHealth;
+			VignetteFX.blur = 4 * health;
+			VignetteFX.intensity = 8 * health;
+		}
 	}
 }
