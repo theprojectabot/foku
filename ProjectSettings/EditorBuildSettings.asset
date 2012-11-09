@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loading Screen.unity
   - enabled: 1
-    path: Assets/Scenes/Monastery/Monastery 1.unity
+    path: Assets/Scenes/Monastery/Monastery.unity
   - enabled: 1
     path: Assets/Scenes/Forest/Forest.unity
   - enabled: 1

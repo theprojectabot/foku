@@ -27,13 +27,12 @@ public class MenuWeather : MonoBehaviour
 		if (DayProgress > 1)
 			DayProgress = 0;
 		
-		Debug.Log (WindAnimation ["Wind"].time);
 		float wind = Mathf.Max (0, -Mathf.Sin (WindAnimation ["Wind"].time * 6.28f));
 		foreach (Grass g in grass) {
 			g.Amplitude = 0.05f + 0.25f * wind;
 		}
-		
-		Leaves.gravityModifier = 0.05f + 0.35f * wind;
-		Leaves.startSpeed = 0.015f + 5 * wind;
+		 
+		Leaves.gravityModifier = 0.015f + 0.35f * wind;
+		Leaves.startSpeed = 0.05f + 5 * wind;
 	}
 }

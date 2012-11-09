@@ -56,7 +56,7 @@ public class FriendlyNPC : MonoBehaviour
 			yield return new WaitForSeconds(0.8f);
 		
 			if (target != null) {
-				float dx = target.position.x - transform.position.x;
+				//float dx = target.position.x - transform.position.x;
 				//if (Mathf.Abs (dx) < AttackDistance)
 				//character.Attack (Attacks [Random.Range (0, Attacks.Length)]);
 			}
