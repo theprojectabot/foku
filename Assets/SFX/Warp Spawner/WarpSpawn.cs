@@ -12,7 +12,7 @@ public class WarpSpawn : MonoBehaviour
 
 	void Start ()
 	{
-		smoothSize.Damping = 2f;
+		smoothSize.Damping = 1f;
 		StartCoroutine (Do ());
 	}
 	
@@ -27,7 +27,7 @@ public class WarpSpawn : MonoBehaviour
 	IEnumerator Do ()
 	{
 		targetSize = Size;
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 		targetSize = 0;
 		Instantiate (Spawn, transform.position, Quaternion.identity);
 		yield return new WaitForSeconds(5f);

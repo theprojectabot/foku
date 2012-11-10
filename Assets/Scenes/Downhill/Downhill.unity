@@ -7264,6 +7264,59 @@ Transform:
   - {fileID: 869659003}
   - {fileID: 795240474}
   m_Father: {fileID: 1555934724}
+--- !u!1 &898513715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 898513716}
+  - 65: {fileID: 898513717}
+  - 114: {fileID: 898513718}
+  m_Layer: 0
+  m_Name: Spawn Trigger 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &898513716
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898513715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.9015942, y: -5.98687077, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!65 &898513717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898513715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.18821573, y: 1, z: 1}
+  m_Center: {x: -1.59410858, y: 0, z: 0}
+--- !u!114 &898513718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898513715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68518d9f972bf5a4799dcbd977f18932, type: 3}
+  m_Name: 
+  Enemy: {fileID: 400056, guid: 8b7c5bf457ad76d45952fc7e1be586c6, type: 2}
+  Size: 1.20000005
+  WarpPrefab: {fileID: 11400000, guid: 10cdf5a53f9b2444abe0f0a1b3aa82bb, type: 2}
 --- !u!1 &915537762
 GameObject:
   m_ObjectHideFlags: 0

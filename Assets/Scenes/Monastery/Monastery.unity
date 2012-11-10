@@ -4290,10 +4290,10 @@ Transform:
   m_LocalPosition: {x: -16.9006729, y: 2.95397902, z: -4.2571373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 258372757}
-  - {fileID: 1067701621}
   - {fileID: 1074715108}
+  - {fileID: 1067701621}
   - {fileID: 1994918093}
+  - {fileID: 258372757}
   - {fileID: 775505863}
   - {fileID: 456539531}
   - {fileID: 231661040}
@@ -5476,6 +5476,7 @@ MonoBehaviour:
   Autostart: 1
   Fade: 1
   Loop: 1
+  Volume: 1
 --- !u!1001 &319651247
 Prefab:
   m_ObjectHideFlags: 0
@@ -6055,6 +6056,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfbe1f72b314c6248ba5ac775b24edf8, type: 3}
   m_Name: 
+  AffectSoundPitch: 0
 --- !u!114 &371822525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7001,6 +7003,7 @@ MonoBehaviour:
   Autostart: 1
   Fade: 1
   Loop: 1
+  Volume: 1
 --- !u!1 &438685696
 GameObject:
   m_ObjectHideFlags: 0
@@ -9978,6 +9981,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: 1
+  LockZ: 1
 --- !u!114 &678368586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18126,6 +18130,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12e0e9f3020048348a88aad1bfb0abcb, type: 3}
   m_Name: 
+  To: Forest
 --- !u!1 &1041928765
 GameObject:
   m_ObjectHideFlags: 0
@@ -23376,6 +23381,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: 1
+  LockZ: 1
 --- !u!114 &1361050089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31003,6 +31009,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: 1
+  LockZ: 1
 --- !u!114 &1949797767
 MonoBehaviour:
   m_ObjectHideFlags: 0

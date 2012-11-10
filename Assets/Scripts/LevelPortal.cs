@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class _MorningLeaveTrigger : MonoBehaviour
+public class LevelPortal : MonoBehaviour
 {
+	public string To;
+	
 	public void OnTriggerEnter (Collider collider)
 	{
 		Cat c = collider.GetComponent<Cat> ();
@@ -15,6 +17,6 @@ public class _MorningLeaveTrigger : MonoBehaviour
 	{
 		ScreenFade.Instance.To (1);
 		yield return new WaitForSeconds(2);
-		GameProgress.GoToLevel ("Mountain");
+		GameProgress.GoToLevel (To);
 	}
 }
