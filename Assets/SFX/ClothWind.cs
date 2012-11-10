@@ -8,10 +8,14 @@ public class ClothWind : MonoBehaviour
 	
 	void Start ()
 	{
-		Vector3 dir = transform.forward;
+		SetWind (transform.forward * Force, RandomForce);
+	}
+	
+	public static void SetWind (Vector3 wind, Vector3 random)
+	{
 		foreach (InteractiveCloth cloth in FindSceneObjectsOfType(typeof(InteractiveCloth))) {
-			cloth.externalAcceleration += dir * Force;
-			cloth.randomAcceleration += transform.TransformDirection (RandomForce);
+			cloth.externalAcceleration = wind;
+			cloth.randomAcceleration = random;
 		}
 	}
 }

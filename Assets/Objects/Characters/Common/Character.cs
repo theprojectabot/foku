@@ -183,8 +183,11 @@ public class Character : MonoBehaviour
 	{
 		Health -= damage;
 		if (Health < 0) {
-			Instantiate (DeathFX, transform.position, Quaternion.identity);
-			Destroy (gameObject);
+			SendMessage ("OnDied", SendMessageOptions.DontRequireReceiver);
+			if (DeathFX != null) {
+				Instantiate (DeathFX, transform.position, Quaternion.identity);
+				Destroy (gameObject);
+			}
 		}
 		Confuse ();
 		SendMessage ("OnHitReceived", SendMessageOptions.DontRequireReceiver);

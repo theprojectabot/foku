@@ -7,6 +7,7 @@ public class Sound : MonoBase
 	public bool Autostart;
 	public bool Fade = true;
 	public bool Loop = false;
+	public float Volume = 1;
 	private SmoothFloat volume = new SmoothFloat ();
 	private float volume0;
 	internal float FadeTo = 1;
@@ -22,14 +23,16 @@ public class Sound : MonoBase
 		volume0 = audio.volume;
 		if (Fade)
 			audio.volume = 0;
+		else
+			volume.Force (1);
 		if (Autostart)
 			audio.Play ();
 	}
 	
 	void Update ()
 	{
-		volume.Update (FadeTo);
 		if (Fade)
-			audio.volume = volume.Value * volume0; 	
+			volume.Update (FadeTo);
+		audio.volume = volume.Value * volume0 * Volume; 	
 	}
 }

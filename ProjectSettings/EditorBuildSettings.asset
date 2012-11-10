@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Evening/Evening.unity
   - enabled: 1
     path: Assets/Scenes/Snowy Mountain/Mountain.unity
+  - enabled: 1
+    path: Assets/Scenes/Downhill/Downhill.unity

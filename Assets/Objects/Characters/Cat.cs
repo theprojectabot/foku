@@ -69,4 +69,17 @@ public class Cat : MonoSingleton<Cat>
 		if (weapon.GetComponent<Fireball> () == null)
 			Rage += 1;
 	}
+	
+	public void OnDied ()
+	{
+		enabled = false;
+		StartCoroutine (DoDie ());
+	}
+	
+	IEnumerator DoDie ()
+	{
+		ScreenFade.Instance.To (1);
+		yield return new WaitForSeconds(2);
+		GameProgress.RestartLevel ();
+	}
 }

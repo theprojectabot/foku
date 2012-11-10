@@ -3814,6 +3814,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: -1
+  LockZ: 1
 --- !u!114 &399994350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10662,27 +10663,27 @@ Prefab:
       objectReference: {fileID: 411590652}
     - target: {fileID: 400014, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.2499094
+      value: -1.25015247
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.25001669
+      value: 1.24998081
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00444444455
+      value: .00416666688
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00444444455
+      value: .00416666688
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00444444455
+      value: .00416666688
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 189.000031
+      value: 201.600021
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e25090dadd6ce4d4485f9126d6dc8d07, type: 2}
@@ -12648,6 +12649,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: 1
+  LockZ: 1
 --- !u!114 &924323564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15631,6 +15633,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: 1
   Direction: 1
+  LockZ: 1
 --- !u!1001 &1175379384
 Prefab:
   m_ObjectHideFlags: 0
@@ -16562,6 +16565,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: 1
   Direction: 1
+  LockZ: 1
 --- !u!114 &1257168156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21863,7 +21867,7 @@ Transform:
   m_GameObject: {fileID: 1608159541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00444444455, y: .00444444455, z: .00444444455}
+  m_LocalScale: {x: .00416666688, y: .00416666688, z: .00416666688}
   m_Children:
   - {fileID: 1582299504}
   - {fileID: 237696828}
@@ -22588,7 +22592,7 @@ Transform:
   m_PrefabInternal: {fileID: 865029870}
   m_GameObject: {fileID: 1728432375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2499094, y: 1.25001669, z: 189.000031}
+  m_LocalPosition: {x: -1.25015247, y: 1.24998081, z: 201.600021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2085878224}
