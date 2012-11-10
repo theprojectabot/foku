@@ -13,7 +13,9 @@ GameObject:
   - 26: {fileID: 2600000}
   - 76: {fileID: 7600000}
   - 114: {fileID: 11400000}
-  m_Layer: 9
+  - 82: {fileID: 8200000}
+  - 114: {fileID: 11400002}
+  m_Layer: 1
   m_Name: Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,9 +31,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: .704768062, z: 0, w: .709437847}
-  m_LocalPosition: {x: 1.44515264, y: 10.8106136, z: -.0601063333}
-  m_LocalScale: {x: .999999881, y: 1, z: .999999881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.63254833, y: 9.88317871, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!1002 &400001
@@ -63,7 +65,7 @@ ParticleAnimator:
   localRotationAxis: {x: 0, y: 0, z: 0}
   sizeGrow: 0
   rndForce: {x: 0, y: 0, z: 0}
-  force: {x: 0, y: -4, z: 0}
+  force: {x: 4, y: -9, z: 0}
   damping: 1
   stopSimulation: 0
   autodestruct: 0
@@ -79,13 +81,13 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .5
-  maxSize: .5
+  minSize: .100000001
+  maxSize: .200000003
   minEnergy: 3
   maxEnergy: 3
-  minEmission: 50
-  maxEmission: 100
-  worldVelocity: {x: 0, y: -20, z: 0}
+  minEmission: 800
+  maxEmission: 1200
+  worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 0, z: 0}
   rndVelocity: {x: 0, y: 0, z: 0}
   emitterVelocityScale: .0500000007
@@ -95,7 +97,7 @@ EllipsoidParticleEmitter:
   rndRotation: 0
   Simulate in Worldspace?: 1
   m_OneShot: 0
-  m_Ellipsoid: {x: 10, y: 1, z: 10}
+  m_Ellipsoid: {x: 40, y: 1, z: 0}
   m_MinEmitterRange: 0
 --- !u!1002 &1500001
 EditorExtensionImpl:
@@ -120,7 +122,7 @@ ParticleRenderer:
   m_ScaleInLightmap: 1
   serializedVersion: 2
   m_CameraVelocityScale: 0
-  m_StretchParticles: 5
+  m_StretchParticles: 3
   m_LengthScale: 2
   m_VelocityScale: 0
   m_MaxParticleSize: .25
@@ -147,6 +149,62 @@ WorldParticleCollider:
 --- !u!1002 &7600001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: e6fd2602ec2a3864b91aeff92909284d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,10 +216,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8752cb848e1130d45bfb1631c43f37d5, type: 3}
   m_Name: 
   burstEnergy: 10
-  explosionObject: {fileID: 400000, guid: af1e625d82c84f842999fa84c5c5953d, type: 2}
+  explosionObject: {fileID: 0}
 --- !u!1002 &11400001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bcdaa7e707017469039207b0177e6b, type: 3}
+  m_Name: 
+  Clips:
+  - {fileID: 8300000, guid: e6fd2602ec2a3864b91aeff92909284d, type: 3}
+  Autostart: 1
+  Fade: 1
+  Loop: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
 	private float speed, verticalSpeed, slideSpeed;
 	public int Direction = 1;
 	private CharacterController character;
+	public bool LockZ = true;
 	internal bool ForceBodyIdleForkAnimation = false, AllowWeapon = true;
 	internal CollisionFlags LastCollision;
 	
@@ -108,6 +109,12 @@ public class Character : MonoBehaviour
 		if (!oldGrounded && character.isGrounded) {
 			animation.CrossFade ("Land");
 			//Instantiate (LandingDustPrefab, transform.position - Vector3.up * character.height / 2, Quaternion.identity);
+		}
+		
+		if (LockZ) {
+			Vector3 p = transform.position;
+			p.z = 0;
+			transform.position = p;
 		}
 	}
 	

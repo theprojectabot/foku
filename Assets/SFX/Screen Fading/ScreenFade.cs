@@ -23,5 +23,7 @@ public class ScreenFade : MonoSingleton<ScreenFade>
 	public void To (float t)
 	{
 		target = t;		
+		foreach (Sound s in FindSceneObjectsOfType(typeof(Sound)))
+			s.FadeTo = 1 - t;
 	}
 }

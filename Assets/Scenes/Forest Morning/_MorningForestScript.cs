@@ -32,6 +32,8 @@ public class _MorningForestScript : MonoSingleton<_MorningForestScript>
 		Catness.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint1;
 		yield return new WaitForSeconds(2);
 		
+		Dialogue.Instance.Say (Catness, "They're preparing to assault the house!", 3);
+		
 		Catness.GetComponent<Character> ().ForceBodyIdleForkAnimation = true;
 		yield return new WaitForSeconds(2);
 		
@@ -39,6 +41,8 @@ public class _MorningForestScript : MonoSingleton<_MorningForestScript>
 		yield return new WaitForSeconds(4);
 		Cat.enabled = true;
 		Cat.GetComponent<Character> ().enabled = true;
+
+		Dialogue.Instance.Say (Catness, "Monks are approaching from both sides.\nGet them before they reach us!", 4);
 		
 		Catness.GetComponent<FriendlyNPC> ().Waypoint = null;
 		Catness.GetComponent<FriendlyNPC> ().Follow = Cat.transform;
@@ -53,7 +57,15 @@ public class _MorningForestScript : MonoSingleton<_MorningForestScript>
 		while (FindSceneObjectsOfType(typeof(Enemy)).Length > 0)
 			yield return new WaitForSeconds(1);
 		yield return new WaitForSeconds(3);
-			
+		
+		Dialogue.Instance.Say (Catness, "That was the last one I guess.", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (Catness, "We need to get to the mountain peak to the west.", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (Catness, "From up there, I can use my powers\nto locate the Fork's energy.", 3);
+		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (Catness, "But we better hurry up if you want\nto be there before the sunset.", 3);
+		
 		Destroy (LeftLimit.gameObject);
 	}
 }

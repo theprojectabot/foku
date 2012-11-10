@@ -48,6 +48,9 @@ public class _MonasteryScript : MonoSingleton<_MonasteryScript>
 		yield return new WaitForSeconds(3);
 		Dialogue.Instance.Say (Catness, "...and it's urgent.", 2);
 		
+		yield return new WaitForSeconds(3);
+		Dialogue.Instance.Say (null, "Use A/D or arrow keys to walk", 5, 1.5f);
+		
 		Cat.enabled = true;
 		Cat.GetComponent<Character> ().enabled = true;
 		Cat.GetComponentInChildren<Flashlight> ().On = true;

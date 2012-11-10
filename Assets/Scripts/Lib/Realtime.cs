@@ -3,6 +3,7 @@ using UnityEngine;
 public class Realtime : MonoSingleton<Realtime>
 {
 	public static float deltaTime;
+	public bool AffectSoundPitch = true;
 	private static float lastTime;
 	// Scale
 	private SmoothFloat timeScale = new SmoothFloat (true);
@@ -25,7 +26,8 @@ public class Realtime : MonoSingleton<Realtime>
 		timeScale.Update (targetTimeScale);
 		Time.fixedDeltaTime = OldFixedDeltaTime * timeScale.Value;
 		Time.timeScale = timeScale.Value;
-		if (Mathf.Abs (timeScale.Value - targetTimeScale) > 0.01f)
+		if (AffectSoundPitch)
+		if (Mathf.Abs (timeScale.Value - targetTimeScale) > 0.0000001f)
 			foreach (AudioSource a in audioSources)
 				if (a != null)
 					a.pitch = timeScale.Value;
