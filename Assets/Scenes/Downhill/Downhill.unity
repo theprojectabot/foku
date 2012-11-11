@@ -3099,6 +3099,67 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &380871484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 380871485}
+  - 65: {fileID: 380871486}
+  - 114: {fileID: 380871487}
+  m_Layer: 0
+  m_Name: Dialogue Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380871485
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 380871484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.1613894, y: -.159686521, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!65 &380871486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 380871484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5.40049744, z: 1}
+  m_Center: {x: 0, y: 9.53674316e-07, z: 0}
+--- !u!114 &380871487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 380871484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c227a362c17dfba428086223f2824e2a, type: 3}
+  m_Name: 
+  Once: 1
+  Phrases:
+  - Origin: {fileID: 1327774735}
+    Text: Should be this way
+    Duration: 2
+  - Origin: {fileID: 1824258371}
+    Text: Not like you sound too convinced\nabout it
+    Duration: 3
+  - Origin: {fileID: 1327774735}
+    Text: Not like it's as easy as making\nflashlights, Mr. Magician
+    Duration: 4
 --- !u!1 &394103023
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,11 +4917,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400046, guid: 5a8d52138c15e134a91cbb00d6195c84, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.6715908
+      value: -11.29214
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 5a8d52138c15e134a91cbb00d6195c84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.91458321
+      value: .343887269
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 5a8d52138c15e134a91cbb00d6195c84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7288,7 +7349,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 898513715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.9015942, y: -5.98687077, z: 0}
+  m_LocalPosition: {x: 19.2152748, y: -5.98687077, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7302,8 +7363,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.18821573, y: 1, z: 1}
-  m_Center: {x: -1.59410858, y: 0, z: 0}
+  m_Size: {x: 3.97633338, y: 1, z: 1}
+  m_Center: {x: -1.4881649, y: 0, z: 0}
 --- !u!114 &898513718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7868,6 +7929,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002726773}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1034258839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1034258840}
+  - 65: {fileID: 1034258841}
+  - 114: {fileID: 1034258842}
+  m_Layer: 0
+  m_Name: Dialogue Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034258840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034258839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.3676662, y: -5.49537373, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!65 &1034258841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034258839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5.40049744, z: 1}
+  m_Center: {x: 0, y: 9.53674316e-07, z: 0}
+--- !u!114 &1034258842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034258839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c227a362c17dfba428086223f2824e2a, type: 3}
+  m_Name: 
+  Once: 1
+  Phrases:
+  - Origin: {fileID: 1327774735}
+    Text: They're using the Fork to tear the space itself\napart and open portals
+      into the Void!
+    Duration: 4
 --- !u!1 &1043574757
 GameObject:
   m_ObjectHideFlags: 0
@@ -8252,6 +8369,64 @@ HingeJoint:
     maxBounce: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
+--- !u!1 &1112674269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1112674270}
+  - 65: {fileID: 1112674271}
+  - 114: {fileID: 1112674272}
+  m_Layer: 0
+  m_Name: Dialogue Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112674270
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112674269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.1869812, y: -4.96126461, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!65 &1112674271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112674269}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5.40049744, z: 1}
+  m_Center: {x: 0, y: 9.53674316e-07, z: 0}
+--- !u!114 &1112674272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112674269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c227a362c17dfba428086223f2824e2a, type: 3}
+  m_Name: 
+  Once: 1
+  Phrases:
+  - Origin: {fileID: 1327774735}
+    Text: Here we go
+    Duration: 1
+  - Origin: {fileID: 1327774735}
+    Text: All sorts of evil stuff
+    Duration: 2
 --- !u!1 &1117208933
 GameObject:
   m_ObjectHideFlags: 0
@@ -10369,6 +10544,7 @@ Animation:
   - {fileID: 7400000, guid: b042c17e7e9a2f5498ae0a8be40dccf8, type: 2}
   - {fileID: 7400000, guid: c243a632fbc45f14498093ee0d190e51, type: 2}
   - {fileID: 7400000, guid: efc7ed52b695c3e499012f8b5e5edcf1, type: 2}
+  - {fileID: 7400000, guid: 71f6879fe89d0c943a9bc91227f18050, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -10444,6 +10620,7 @@ MonoBehaviour:
   m_Name: 
   Fireball: {fileID: 400006, guid: b6192dc9846ca4648bdeb4ca906fa48c, type: 2}
   Shield: {fileID: 400002, guid: addfe2864b9f93249bd7d6701dee8c78, type: 2}
+  Push: {fileID: 400000, guid: 75e807eacf21dd046aec2bae48db8c5b, type: 2}
 --- !u!1 &1334992426
 GameObject:
   m_ObjectHideFlags: 0
@@ -15964,7 +16141,7 @@ Transform:
   m_PrefabInternal: {fileID: 535141993}
   m_GameObject: {fileID: 1824258370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.6715908, y: -4.91458321, z: 0}
+  m_LocalPosition: {x: -11.29214, y: .343887269, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1860193841}
@@ -15988,6 +16165,7 @@ Animation:
   - {fileID: 7400000, guid: c243a632fbc45f14498093ee0d190e51, type: 2}
   - {fileID: 7400000, guid: efc7ed52b695c3e499012f8b5e5edcf1, type: 2}
   - {fileID: 7400000, guid: 578c381f1126ddc42946c416a3ab114a, type: 2}
+  - {fileID: 7400000, guid: 71f6879fe89d0c943a9bc91227f18050, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
