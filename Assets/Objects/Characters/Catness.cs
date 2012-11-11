@@ -5,6 +5,7 @@ public class Catness : MonoSingleton<Catness>
 {
 	public Transform Fireball;
 	public Transform Shield;
+	public Transform Push;
 	
 	public override void Start ()
 	{
@@ -13,18 +14,23 @@ public class Catness : MonoSingleton<Catness>
 		_<FriendlyNPC> ().Follow = Cat.Instance.transform;
 	}
 	
-	void Update() {
-		if (Application.isEditor && Input.GetKeyDown(KeyCode.F))
-			DoFireball();
+	void Update ()
+	{
+		if (Application.isEditor && Input.GetKeyDown (KeyCode.F))
+			DoFireball ();
+		if (Application.isEditor && Input.GetKeyDown (KeyCode.G))
+			DoPush ();
 	}
 	
 	public void DoMagic ()
 	{
-		int r = Random.Range (0, 2);
+		int r = Random.Range (0, 3);
 		if (r == 0)
 			DoFireball ();
 		if (r == 1)
 			DoShield ();
+		if (r == 2)
+			DoPush ();
 	}
 	
 	public void DoFireball ()
@@ -36,7 +42,12 @@ public class Catness : MonoSingleton<Catness>
 	{
 		Spawn (Shield).parent = transform;
 	}
-	
+
+	public void DoPush ()
+	{
+		Spawn (Push).parent = transform;
+	}
+
 	public Transform Spawn (Transform prefab)
 	{ 
 		return ((Transform)Instantiate (prefab, transform.position, transform.rotation));

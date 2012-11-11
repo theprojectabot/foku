@@ -2643,6 +2643,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: 1
+  LockZ: 1
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2655,6 +2656,7 @@ MonoBehaviour:
   m_Name: 
   Fireball: {fileID: 400006, guid: b6192dc9846ca4648bdeb4ca906fa48c, type: 2}
   Shield: {fileID: 400002, guid: addfe2864b9f93249bd7d6701dee8c78, type: 2}
+  Push: {fileID: 400000, guid: 75e807eacf21dd046aec2bae48db8c5b, type: 2}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
