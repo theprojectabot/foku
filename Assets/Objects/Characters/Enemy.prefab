@@ -2809,9 +2809,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08a27840e6480748b61d1a9a31d2b62, type: 3}
   m_Name: 
-  Health: 50
-  MaxHealth: 50
-  HealthRegeneration: 6
+  Health: 40
+  MaxHealth: 40
+  HealthRegeneration: 5
   DeathFX: {fileID: 400004, guid: 7084e5866e9bd784f84792c370a09229, type: 2}
   MaxSpeed: 1
   Acceleration: 4
@@ -2822,6 +2822,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: 1
   Direction: -1
+  LockZ: 1
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
