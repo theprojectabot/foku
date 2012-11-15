@@ -154,6 +154,8 @@ public class Character : MonoBehaviour
 	
 	public void Jump ()
 	{
+		if (!AllowWeapon)
+			return;
 		StartCoroutine (DoJump ());
 	}
 	

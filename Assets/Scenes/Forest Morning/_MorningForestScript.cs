@@ -60,8 +60,8 @@ public class _MorningForestScript : MonoSingleton<_MorningForestScript>
 		
 		Dialogue.Instance.Say (Catness, "That was the last one I guess.", 3);
 		yield return new WaitForSeconds(4);
-		Dialogue.Instance.Say (Catness, "We need to get to the mountain peak to the west.", 3);
-		yield return new WaitForSeconds(4);
+		Dialogue.Instance.Say (Catness, "We need to get to the mountain peak to the west.", 5);
+		yield return new WaitForSeconds(6);
 		Dialogue.Instance.Say (Catness, "From up there, I can use my powers\nto locate the Fork's energy.", 3);
 		yield return new WaitForSeconds(4);
 		Dialogue.Instance.Say (Catness, "But we better hurry up if you want\nto be there before the sunset.", 3);
