@@ -41,9 +41,9 @@ MonoBehaviour:
   mUVRect:
     serializedVersion: 2
     x: 0
-    y: -.265625
-    width: 1
-    height: 1
+    y: -.1328125
+    width: .5
+    height: .5
   mFont:
     mGlyphs: []
     mSize: 64

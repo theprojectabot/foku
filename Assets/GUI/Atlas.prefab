@@ -43,19 +43,36 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 136
+      y: 648
       width: 511
       height: 376
     inner:
       serializedVersion: 2
       x: 0
-      y: 136
+      y: 648
       width: 511
       height: 376
     paddingLeft: 0
     paddingRight: .00195694715
     paddingTop: 0
     paddingBottom: .361702114
+  - name: Pixel
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 1016
+      width: 8
+      height: 8
+    inner:
+      serializedVersion: 2
+      x: 514
+      y: 1017
+      width: 6
+      height: 6
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

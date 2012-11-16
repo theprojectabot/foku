@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Cam : MonoBehaviour
+public class Cam : MonoSingleton<Cam>
 {
 	public float FollowCoeff = 1;
 	public Transform Target;

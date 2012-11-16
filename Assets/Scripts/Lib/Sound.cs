@@ -7,7 +7,7 @@ public class Sound : MonoBase
 	public bool Autostart;
 	public bool Fade = true;
 	public bool Loop = false;
-	public float Volume = 1;
+	public float Volume = 1, Pitch = 1;
 	private SmoothFloat volume = new SmoothFloat ();
 	private float volume0;
 	internal float FadeTo = 1;
@@ -20,6 +20,7 @@ public class Sound : MonoBase
 			gameObject.AddComponent<AudioSource> ();
 		audio.clip = Clips [Random.Range (0, Clips.Length)];
 		audio.loop = Loop;
+		audio.pitch = Pitch;
 		volume0 = audio.volume;
 		if (Fade)
 			audio.volume = 0;

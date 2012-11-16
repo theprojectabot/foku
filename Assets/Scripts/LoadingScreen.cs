@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LoadingScreen : MonoBehaviour
 {
-	public static string Level = "Monastery 1";
+	public static string Level = "Menu";
 	
 	void Start ()
 	{

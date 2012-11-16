@@ -6,6 +6,8 @@ public class _BattleForkFX : MonoSingleton<_BattleForkFX>
 	public float Amount;
 	public ParticleSystem Wind;
 	public Transform Portal;
+	public AudioSource Sound0, Sound1;
+	internal bool SuckPlayerIn = true;
 	private float life0, speed0, alpha0;
 	private Vector3 size0;
 	private SmoothFloat amount = new SmoothFloat ();
@@ -20,6 +22,19 @@ public class _BattleForkFX : MonoSingleton<_BattleForkFX>
 		amount.Damping = 4;
 	}
 	
+	public void Collapse ()
+	{
+		amount.Damping = 0.5f;
+		amount.Force (1);
+		Amount = 0.1f;
+	}
+	
+	public void Expand ()
+	{
+		amount.Damping = 0.5f;
+		Amount = 16f;
+	}
+
 	void Update ()
 	{
 		amount.Update (Amount);
@@ -32,8 +47,13 @@ public class _BattleForkFX : MonoSingleton<_BattleForkFX>
 		FX.Instance.Shaking = (amount.Value - 0.8f) * 5;
 		ClothWind.SetWind (Vector3.right * 30 * amount.Value, Vector3.right * 50 * amount.Value);
 		
-		float d = transform.position.x - Cat.Instance.transform.position.x;
-		Cat.Instance.GetComponent<CharacterController> ().Move (transform.right * Mathf.Sign (d) * Time.deltaTime * 1 * (2 * amount.Value - 0.95f));
+		Sound0.volume = Mathf.Clamp01 (amount.Value - 1);
+		Sound1.volume = Mathf.Clamp01 (amount.Value - 1) / 3;
+		
+		if (Mathf.Abs (_BattleShield.Instance.transform.position.x - Cat.Instance.transform.position.x) > 1.5f && SuckPlayerIn) {
+			float d = transform.position.x - Cat.Instance.transform.position.x;
+			Cat.Instance.GetComponent<CharacterController> ().Move (transform.right * Mathf.Sign (d) * Time.deltaTime * 3 * (Mathf.Clamp (amount.Value, 2, 3) - 1.8f));
+		}
 	}
 	
 	public void OnTriggerEnter (Collider collider)

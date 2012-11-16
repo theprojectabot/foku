@@ -3220,6 +3220,7 @@ MonoBehaviour:
   m_Name: 
   TimeScale: 1
   DamageFX: 0
+  Shaking: 0
   VignetteFX: {fileID: 682010198}
 --- !u!114 &840117372
 MonoBehaviour:
@@ -6178,6 +6179,7 @@ MonoBehaviour:
   Fade: 1
   Loop: 1
   Volume: 1
+  Pitch: 1
 --- !u!1 &2069257307
 GameObject:
   m_ObjectHideFlags: 0
