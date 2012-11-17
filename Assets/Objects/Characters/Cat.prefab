@@ -690,6 +690,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400082}
+  - 114: {fileID: 11400018}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -759,6 +760,7 @@ GameObject:
   - 4: {fileID: 400090}
   - 160: {fileID: 16000000}
   - 161: {fileID: 16100000}
+  - 114: {fileID: 11400020}
   m_Layer: 10
   m_Name: Cloth
   m_TagString: Untagged
@@ -1268,7 +1270,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.7048035, y: -4.4548564, z: 0}
+  m_LocalPosition: {x: 12.4039059, y: 2.12440252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400060}
@@ -3163,6 +3165,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611bb7bc3921ee04a84dfe5eeb93aee4, type: 3}
   m_Name: 
   Character: {fileID: 11400006}
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e703676a66be144b9a04eeabfa017a, type: 3}
+  m_Name: 
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2094ce961b859d145aa51ae01fdf1d3d, type: 3}
+  m_Name: 
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4213,6 +4235,11 @@ ParticleSystem:
     energyLossOnCollision: 0
     minKillSpeed: 0
     particleRadius: .00999999978
+    collidesWith:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    quality: 0
+    voxelSize: .5
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}
@@ -5204,6 +5231,11 @@ ParticleSystem:
     energyLossOnCollision: 0
     minKillSpeed: 0
     particleRadius: .00999999978
+    collidesWith:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    quality: 0
+    voxelSize: .5
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}

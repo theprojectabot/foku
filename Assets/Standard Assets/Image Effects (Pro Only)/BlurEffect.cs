@@ -45,6 +45,8 @@ public class BlurEffect : MonoBehaviour
 	
 	protected void Start()
 	{
+		if (Application.platform == RuntimePlatform.Android)
+			enabled = false;
 		// Disable if we don't support image effects
 		if (!SystemInfo.supportsImageEffects) {
 			enabled = false;
@@ -83,6 +85,7 @@ public class BlurEffect : MonoBehaviour
 	
 	// Called by the camera to apply the image effect
 	void OnRenderImage (RenderTexture source, RenderTexture destination) {		
+
 		RenderTexture buffer = RenderTexture.GetTemporary(source.width/4, source.height/4, 0);
 		RenderTexture buffer2 = RenderTexture.GetTemporary(source.width/4, source.height/4, 0);
 		

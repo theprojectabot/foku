@@ -7,9 +7,8 @@ public class LoadingScreen : MonoBehaviour
 	
 	void Start ()
 	{
-//#if UNITY_DESKTOP
-		Screen.SetResolution(800,450,false);
-//#endif	
+		if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.LinuxPlayer)
+			Screen.SetResolution (800, 450, false);
 		StartCoroutine (Loader ());
 	}
 	

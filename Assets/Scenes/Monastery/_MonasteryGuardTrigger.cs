@@ -6,7 +6,9 @@ public class _MonasteryGuardTrigger : MonoBehaviour
 	public void OnTriggerEnter (Collider collider)
 	{
 		Cat c = collider.GetComponent<Cat> ();
-		if (c != null)
+		if (c != null) {
 			_MonasteryScript.Instance.StartCoroutine (_MonasteryScript.Instance.Do2 ());
+			Destroy (gameObject);
+		}
 	}
 }

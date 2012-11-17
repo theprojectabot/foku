@@ -89,7 +89,7 @@ public class Character : MonoBehaviour
 		Vector3 oldPosition = transform.localPosition;
 		LastCollision = character.Move (motion * Time.deltaTime);
 		float dx = transform.localPosition.x - oldPosition.x;
-		speed = Mathf.Abs (dx / Time.deltaTime);
+		//speed = Mathf.Abs (dx / Time.deltaTime);
 		verticalSpeed = (character.isGrounded) ? -0.1f : (verticalSpeed + Physics.gravity.y * Time.deltaTime);
 	
 		if (character.isGrounded)

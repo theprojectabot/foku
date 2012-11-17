@@ -278,6 +278,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400032}
+  - 114: {fileID: 11400010}
   m_Layer: 12
   m_Name: Tail
   m_TagString: Untagged
@@ -811,6 +812,7 @@ GameObject:
   - 4: {fileID: 400096}
   - 160: {fileID: 16000000}
   - 161: {fileID: 16100000}
+  - 114: {fileID: 11400012}
   m_Layer: 12
   m_Name: Cloth
   m_TagString: Untagged
@@ -917,8 +919,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
-  m_LocalRotation: {x: -.0143548883, y: -.233103529, z: -.146802694, w: .961200118}
-  m_LocalPosition: {x: .0247467496, y: -.184781015, z: -.0445380658}
+  m_LocalRotation: {x: -.0137428911, y: -.233140424, z: -.144278884, w: .961582184}
+  m_LocalPosition: {x: .0247463081, y: -.184781075, z: -.0445380658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400066}
@@ -1080,7 +1082,7 @@ Transform:
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: -.100000001, z: 0}
-  m_LocalScale: {x: .00892399903, y: .24999997, z: -.0230039936}
+  m_LocalScale: {x: .00567385368, y: .24999997, z: -.0230039936}
   m_Children: []
   m_Father: {fileID: 400072}
 --- !u!4 &400038
@@ -1162,7 +1164,7 @@ Transform:
   m_GameObject: {fileID: 100050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -.120054007, z: 0}
-  m_LocalScale: {x: .0773634166, y: .207152367, z: .00999999978}
+  m_LocalScale: {x: .0491874442, y: .207152367, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 400084}
 --- !u!4 &400052
@@ -1258,7 +1260,7 @@ Transform:
   m_GameObject: {fileID: 100066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -.120054007, z: 0}
-  m_LocalScale: {x: .0773634166, y: .207152367, z: .00999999978}
+  m_LocalScale: {x: .0491874442, y: .207152367, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 400010}
 --- !u!4 &400068
@@ -1358,8 +1360,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100084}
-  m_LocalRotation: {x: .0262533687, y: .060487289, z: -.303789765, w: -.950454593}
-  m_LocalPosition: {x: .0141081847, y: -.176598847, z: .0422763526}
+  m_LocalRotation: {x: .0452547446, y: .0479578003, z: .0374596901, w: -.997120261}
+  m_LocalPosition: {x: .0141085526, y: -.176598758, z: .0422763526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400050}
@@ -1373,7 +1375,7 @@ Transform:
   m_GameObject: {fileID: 100086}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: -.100000001, z: 0}
-  m_LocalScale: {x: .00892399903, y: .24999997, z: -.0230039936}
+  m_LocalScale: {x: .00567385368, y: .24999997, z: -.0230039936}
   m_Children: []
   m_Father: {fileID: 400060}
 --- !u!4 &400088
@@ -1421,7 +1423,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100094}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -16.3602333, y: -1.02118528, z: 0}
+  m_LocalPosition: {x: 15.0281448, y: 2.12440252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400092}
@@ -2659,6 +2661,26 @@ MonoBehaviour:
   Fireball: {fileID: 400006, guid: b6192dc9846ca4648bdeb4ca906fa48c, type: 2}
   Shield: {fileID: 400002, guid: addfe2864b9f93249bd7d6701dee8c78, type: 2}
   Push: {fileID: 400000, guid: 75e807eacf21dd046aec2bae48db8c5b, type: 2}
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e703676a66be144b9a04eeabfa017a, type: 3}
+  m_Name: 
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2094ce961b859d145aa51ae01fdf1d3d, type: 3}
+  m_Name: 
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -3714,6 +3736,11 @@ ParticleSystem:
     energyLossOnCollision: 0
     minKillSpeed: 0
     particleRadius: .00999999978
+    collidesWith:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    quality: 0
+    voxelSize: .5
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}
@@ -4700,6 +4727,11 @@ ParticleSystem:
     energyLossOnCollision: 0
     minKillSpeed: 0
     particleRadius: .00999999978
+    collidesWith:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    quality: 0
+    voxelSize: .5
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}

@@ -23,6 +23,14 @@ class Vignetting extends PostEffectsBase {
 	public var chromAberrationShader : Shader;
 	private var chromAberrationMaterial : Material;
 	
+	
+	
+	function Start() {
+		if (Application.platform == RuntimePlatform.Android)
+			enabled = false;
+	}
+			
+			
 	function OnDisable()
 	{
 		if (vignetteMaterial)

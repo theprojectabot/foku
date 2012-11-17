@@ -43,30 +43,30 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 648
-      width: 511
-      height: 376
+      y: 38
+      width: 1022
+      height: 474
     inner:
       serializedVersion: 2
       x: 0
-      y: 648
-      width: 511
-      height: 376
+      y: 38
+      width: 1022
+      height: 474
     paddingLeft: 0
     paddingRight: .00195694715
     paddingTop: 0
-    paddingBottom: .361702114
+    paddingBottom: .0801687762
   - name: Pixel
     outer:
       serializedVersion: 2
-      x: 513
-      y: 1016
+      x: 0
+      y: 28
       width: 8
       height: 8
     inner:
       serializedVersion: 2
-      x: 514
-      y: 1017
+      x: 1
+      y: 29
       width: 6
       height: 6
     paddingLeft: 0

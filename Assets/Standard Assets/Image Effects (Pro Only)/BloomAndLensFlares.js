@@ -74,6 +74,12 @@ class BloomAndLensFlares extends PostEffectsBase {
 	public var brightPassFilterShader : Shader;
 	private var brightPassFilterMaterial : Material;
 	
+	
+	function Start() {
+		if (Application.platform == RuntimePlatform.Android)
+			enabled = false;
+	}
+			
     function OnDisable()
     {
 		if (screenBlend) 

@@ -19,7 +19,7 @@ public class _MountainSceneTrigger : MonoBehaviour
 	{
 		Catness.Instance.GetComponent<Character> ().MaxSpeed = 0.8f;
 		Catness.Instance.GetComponent<FriendlyNPC> ().Waypoint = CatnessWaypoint;
-		Dialogue.Instance.Say (Catness.Instance.transform, "Ok, this is the place.", 3);
+		Dialogue.Instance.Say (Catness.Instance.transform, "Ok, that's it.", 3);
 		yield return new WaitForSeconds(3);
 		Catness.Instance.GetComponent<Character> ().enabled = false;
 		Catness.Instance.animation.CrossFade ("Sit Down");
