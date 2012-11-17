@@ -7830,7 +7830,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 0}
+  mMat: {fileID: 2100000, guid: 4ade42dc84d729841beef79a68e7fdd7, type: 2}
   mTex: {fileID: 0}
   mColor: {r: .194029868, g: .194029868, b: .194029868, a: 1}
   mPivot: 4
@@ -10092,7 +10092,7 @@ MonoBehaviour:
   Confused: 0
   ConfusionTimeout: .5
   Direction: 1
-  LockZ: 1
+  LockZ: 0
 --- !u!114 &678368586
 MonoBehaviour:
   m_ObjectHideFlags: 0
