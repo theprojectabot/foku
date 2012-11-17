@@ -1,83 +1,189 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Game-off-2012 by Eugeny</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title>Foku</title>
+		<link rel="stylesheet" href="stylesheets/styles.css">
+		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/Eugeny/game-off-2012">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/Eugeny/game-off-2012/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/Eugeny/game-off-2012/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 800, 
+				height: 450,
+				params: { enableDebugging:"0" }
+				
+			};
+			var u = new UnityObject2(config);
+			
+			jQuery(function() {
 
-    <div class="wrapper">
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
 
-      <section>
-        <div id="title">
-          <h1>Game-off-2012</h1>
-          <p>The GitHub Game Off 2012 is game jam / hackathon / coding challenge to create and open source a web-based game</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/Eugeny">Eugeny</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "unity/WebPlayer.unity3d");
+			});
+		-->
 
-        <h3>Welcome to GitHub Pages.</h3>
+		$(function () {
+			$('#shades-toggle').click(function () {
+				if (!$('#shades').is(":visible"))
+					$('#shades').stop().show().fadeTo(1000,1);
+				else
+					$('#shades').stop().fadeTo(1000,0, function () { $('#shades').hide(); });
+			});
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+			$('#shades').hide();
+		});
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+		</script>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
-<h3>Designer Templates</h3>
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!--[if lt IE 8]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+		<![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+	</head>
+	<body>
+			<div id="header">
+				<nav>
+					<li class="fork"><a href="https://github.com/Eugeny/game-off-2012">View On GitHub</a></li>
+					<li class="downloads"><a href="/">Linux</a></li>
+					<li class="downloads"><a href="/">Mac</a></li>
+					<li class="downloads"><a href="/">Windows</a></li>
+					<li class="title">STANDALONE DOWNLOADS</li>
+				</nav>
+			</div><!-- end header -->
 
-<h3>Rather Drive Stick?</h3>
+		<div class="wrapper">
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+			<section>
+				<div id="title">
+					<h1>Fōku</h1>
+					<p>A small story of faith, forksmanship and magic.</p>
+					<hr>
+					<span class="credits left">Project maintained by <a href="https://github.com/Eugeny">@eugeny</a></span>
+					<span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+				</div>
 
-<h3>Authors and Contributors</h3>
+				<div id="unityPlayer">
+					<div class="missing">
+						<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+							<img alt="Please install Unity Web Player!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+						</a>
+					</div>
+				</div>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+				<p>
+					<center><a id="shades-toggle" href="#">Cinematic mode</a><br><i>click for optimal immersion</i></center>
+				</p>
 
-<h3>Support or Contact</h3>
+				<div id="shades"></div>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+					<h3>The Story Begins</h3>
+					
+					<p>The old Master is betrayed by league of Shadow Monks as they steal the artifact known as the Great Fork. He sends his fellow students, a forksman and a wizard, to retrieve the Fork before Shadow Monks use it to open a portal into the Void, but will they succeed? Play and find out.</p>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-3278102-14");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+					<h3>Controls</h3>
+					<dl>
+						<dt>Movement</dt>
+						<dd>A, D or arrow keys</dd>
+						<dt>Jumping</dt>
+						<dd>Space key</dd>
+						<dt>Attack</dt>
+						<dd>Right Control key</dd>
+					</dl>
+					<p>
+						<ul>
+							<li>Jump to avoid being hit</li>
+							<li>Deliver multiple quick blows to kill enemies before they regenerate</li>
+							<li>Large enemies can only be killed by striking their unprotected heads</li>
+							<li>If you perform few hits without getting hit yourself, your fellow assistant will deploy one of her spells automatically</li>
+							<li>Protective shield will not let enemies get inside, but it won't protect you against their weapons</li>
+						</ul>
+					</p>
 
-  </body>
+					<h3>Authors</h3>
+					<p>
+						This game is drawn and written by <a href="https://github.com/Eugeny">@eugeny</a>, and proudly features great soundtrack composed by <a target="_blank" href="http://www.jamendo.com/en/artist/355362/marc-teichert">Marc Teichert</a>. You can download the complete album for free at <a target="_blank" href="http://www.jamendo.com/en/list/a86097/sakura">Jamendo</a>!
+					</p>
+			</section>
+			
+			<section>
+
+		        <div id="disqus_thread"></div>
+		        <script type="text/javascript">
+		            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		            var disqus_shortname = 'foku'; // required: replace example with your forum shortname
+
+		            /* * * DON'T EDIT BELOW THIS LINE * * */
+		            (function() {
+		                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		            })();
+		        </script>
+		        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+			</section>
+
+		</div>
+		<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+							<script type="text/javascript">
+						var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+						document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+					<script type="text/javascript">
+						try {
+							var pageTracker = _gat._getTracker("UA-3278102-14");
+						pageTracker._trackPageview();
+						} catch(err) {}
+					</script>
+
+	</body>
 </html>
