@@ -23,3 +23,9 @@ Prerequisites:
 * Autodesk Maya
 * Adobe Photoshop
 
+### Technology inside:
+
+* Unity3D game engine
+* Mono Runtime runs all the code inside
+* OpenGL handles rendering
+* OGG Vorbis is used to store the music and sounds
