@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Evening/Evening.unity
   - enabled: 1
     path: Assets/Scenes/Battle/Battle.unity
+  - enabled: 1
+    path: Assets/Scenes/Aftermath/Aftermath.unity
