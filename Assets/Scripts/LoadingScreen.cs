@@ -15,14 +15,20 @@ public class LoadingScreen : MonoBehaviour
 	public IEnumerator Loader ()
 	{
 		yield return new WaitForSeconds(1);
-		Application.LoadLevelAsync (Level);
+		if (!Application.isWebPlayer)
+			Application.LoadLevelAsync (Level);
 	}
 	
 	public UISlider Progress;
-
+	private bool started = false;
+	
 	void Update ()
 	{
 		Progress.sliderValue = Application.GetStreamProgressForLevel (Level);
 		Progress.gameObject.SetActive (Progress.sliderValue < 1);
+		if (Application.isWebPlayer && !started && Application.CanStreamedLevelBeLoaded (Level)) {
+			started = true;
+			Application.LoadLevelAsync (Level);
+		}
 	}
 }
