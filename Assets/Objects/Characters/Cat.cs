@@ -35,7 +35,7 @@ public class Cat : MonoSingleton<Cat>
 		if (Input.GetKeyDown (KeyCode.B)) 
 			character.Backoff (2);
 		
-		if (Input.GetKeyDown (KeyCode.RightControl)) {
+		if (Input.GetKeyDown (KeyCode.RightControl) || Input.GetKeyDown (KeyCode.LeftControl)) {
 			forkHideTimeout = 5;
 			string attack = attacks [Random.Range (0, attacks.Length)];
 			character.Attack (attack);

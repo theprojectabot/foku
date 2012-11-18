@@ -17,4 +17,12 @@ public class LoadingScreen : MonoBehaviour
 		yield return new WaitForSeconds(1);
 		Application.LoadLevelAsync (Level);
 	}
+	
+	public UISlider Progress;
+
+	void Update ()
+	{
+		Progress.sliderValue = Application.GetStreamProgressForLevel (Level);
+		Progress.gameObject.SetActive (Progress.sliderValue < 1);
+	}
 }
