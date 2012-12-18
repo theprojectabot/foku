@@ -1,3 +1,5 @@
+<img src="http://dl.dropbox.com/u/7138409/foku2.png"  width="256" />
+
 <img src="http://eugeny.github.com/foku/readme/head.png">
 
 # Fōku
